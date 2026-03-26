@@ -1,0 +1,82 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #e3f2fd, #fce4ec);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+}
+
+/* Glass effect container */
+.container {
+  background: rgba(255, 255, 255, 0.8);
+  padding: 35px;
+  border-radius: 20px;
+  width: 320px;
+  text-align: center;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  animation: fadeIn 1s ease;
+}
+
+h2 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Inputs */
+input, select {
+  width: 100%;
+  margin: 10px 0;
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  background: #f5f7fa;
+  outline: none;
+  transition: 0.3s;
+  font-size: 14px;
+}
+
+input:focus, select:focus {
+  box-shadow: 0 0 5px #90caf9;
+  transform: scale(1.02);
+}
+
+/* Button */
+button {
+  background: linear-gradient(45deg, #64b5f6, #ba68c8);
+  color: white;
+  padding: 12px;
+  border: none;
+  width: 100%;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+  font-size: 15px;
+}
+
+button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* Message */
+#msg {
+  margin-top: 12px;
+  font-weight: bold;
+  color: #4caf50;
+  animation: fadeIn 0.5s ease;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
