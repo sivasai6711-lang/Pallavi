@@ -1,19 +1,21 @@
 document.getElementById("form").addEventListener("submit", async (e) => {
   e.preventDefault();
 
+  const form = document.getElementById("form");
   const msg = document.getElementById("msg");
+
   msg.innerText = "⏳ Registering...";
   msg.style.color = "#555";
 
   const data = {
-    name: document.getElementById("name").value,
-    email: document.getElementById("email").value,
-    phone: document.getElementById("phone").value,
+    name: document.getElementById("name").value.trim(),
+    email: document.getElementById("email").value.trim(),
+    phone: document.getElementById("phone").value.trim(),
     event: document.getElementById("event").value
   };
 
   try {
-    const res = await fetch("http://localhost:5000/register", {
+    const response = await fetch("https://chinni-krer.onrender.com/register", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -21,15 +23,20 @@ document.getElementById("form").addEventListener("submit", async (e) => {
       body: JSON.stringify(data)
     });
 
-    const result = await res.json();
+    if (!response.ok) {
+      throw new Error("Server error");
+    }
 
-    msg.innerText = "✅ " + result.message;
+    const result = await response.json();
+
+    msg.innerText = "✅ " + (result.message || "Registration successful!");
     msg.style.color = "#4caf50";
 
-    document.getElementById("form").reset();
+    form.reset();
 
   } catch (error) {
-    msg.innerText = "❌ Something went wrong!";
+    console.error("Error:", error);
+    msg.innerText = "❌ Server connect కాలేదు లేదా backend sleep లో ఉంది";
     msg.style.color = "red";
   }
 });

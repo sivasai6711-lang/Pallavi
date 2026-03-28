@@ -1,19 +1,21 @@
 body {
   font-family: 'Segoe UI', sans-serif;
   background: linear-gradient(135deg, #e3f2fd, #fce4ec);
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 0;
+  padding: 15px;
 }
 
 /* Glass effect container */
 .container {
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.85);
   padding: 35px;
   border-radius: 20px;
-  width: 320px;
+  width: 100%;
+  max-width: 340px;
   text-align: center;
   backdrop-filter: blur(10px);
   box-shadow: 0 10px 30px rgba(0,0,0,0.1);
@@ -36,10 +38,11 @@ input, select {
   outline: none;
   transition: 0.3s;
   font-size: 14px;
+  box-sizing: border-box;
 }
 
 input:focus, select:focus {
-  box-shadow: 0 0 5px #90caf9;
+  box-shadow: 0 0 8px #90caf9;
   transform: scale(1.02);
 }
 
@@ -65,8 +68,7 @@ button:hover {
 #msg {
   margin-top: 12px;
   font-weight: bold;
-  color: #4caf50;
-  animation: fadeIn 0.5s ease;
+  min-height: 20px;
 }
 
 /* Animation */
@@ -78,5 +80,12 @@ button:hover {
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+/* Mobile optimization */
+@media (max-width: 480px) {
+  .container {
+    padding: 25px;
   }
 }

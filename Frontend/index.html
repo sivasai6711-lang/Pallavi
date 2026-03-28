@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Event Registration</title>
   <link rel="stylesheet" href="style.css">
 </head>
@@ -13,9 +14,10 @@
   <form id="form">
     <input type="text" id="name" placeholder="👤 Enter Name" required>
     <input type="email" id="email" placeholder="📧 Enter Email" required>
-    <input type="text" id="phone" placeholder="📱 Enter Phone" required>
+    <input type="tel" id="phone" placeholder="📱 Enter Phone Number" required>
 
-    <select id="event">
+    <select id="event" required>
+      <option value="">Select Event</option>
       <option value="Tech Fest">💻 Tech Fest</option>
       <option value="Workshop">🛠 Workshop</option>
       <option value="Seminar">🎓 Seminar</option>
